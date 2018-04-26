@@ -233,6 +233,7 @@
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "minimist": "1.2.0",
+    "numeric": "^1.2.6",
     "prop-types": "15.5.10",
     "react": "15.6.1",
     "react-bootstrap": "^0.31.5",
@@ -250,6 +251,7 @@
     "reselect": "3.0.1",
     "sanitize.css": "4.1.0",
     "styled-components": "2.0.0",
+    "three": "^0.92.0",
     "warning": "3.0.0",
     "whatwg-fetch": "2.0.3",
     "xml-loader": "^1.2.1"

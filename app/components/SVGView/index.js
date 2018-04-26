@@ -23,7 +23,8 @@ const SVGViewPort = styled.svg`
 SVGViewPort.defaultProps = {
   parentSize: [0, 0], // The size of its parent node
   size: { w: 90, h: 90 }, // The size of the whole svg
-  margin: { w: 0, h: 0 }, // Margin of the SVG
+  sizeRatio: { w: 0.9, h: 0.9 }, // The size ratio of the svg in its parent node
+  margin: { w: 0, h: 0 }, // Margin of the svg
   background: '#fff'
 }
 
@@ -54,6 +55,8 @@ const Decorator = SVGContents =>
     class extends React.PureComponent {
       constructor (props) {
         super(props)
+        let sizeRatio = props.inner.sizeRatio
+        props.inner.size = {w: sizeRatio.w * 100, h: sizeRatio.h * 100}
         this.defaults = {
           viewBox: { w: 100, h: 100 }, // viewBox: the real viewport size
           preserveAspectRatio: 'xMidYMid meet' // How to preserve the aspect ratio

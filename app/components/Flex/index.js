@@ -5,6 +5,10 @@
 
 import styled from 'styled-components'
 import { sizeSuffix, pageStyle } from 'styles/constants'
+import PMath from 'utils/pmath'
+import MsgBox from 'components/MsgBox'
+
+const msg = new MsgBox('FLEX')
 
 // Get the real size according to the size suffix, such as 'px', 'em', 'rem', etc.
 const getSize = function (size) {
@@ -96,8 +100,13 @@ class FlexUnit {
   }
   child (wRto, hRto) {
         // Get the size of a childNode
-    let w = this.size.w * wRto * 0.01
-    let h = this.size.h * hRto * 0.01
+    let ratioRange = [0, 1]
+    if (!PMath.isLegal(wRto, ratioRange) || !PMath.isLegal(hRto, ratioRange)) {
+      msg.error('Illegal parameter!')
+      return false
+    }
+    let w = this.size.w * wRto
+    let h = this.size.h * hRto
     let child = new FlexUnit(w, h)
     this.children.push(child)
     return child
